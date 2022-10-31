@@ -1,0 +1,18 @@
+name: Send Threaded Tweets
+
+on:
+    workflow_dispatch:
+
+jobs:
+  tweet:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: dart-actions/threaded-tweets@v0.0.1
+        with:
+          texts:
+            - "Hello, World!"
+            - "This is a threaded tweet!"
+          consumer-key: ${{ secrets.TWITTER_CONSUMER_KEY }}
+          consumer-secret: ${{ secrets.TWITTER_CONSUMER_SECRET }}
+          access-token: ${{ secrets.TWITTER_ACCESS_TOKEN }}
+          access-token-secret: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
